@@ -54,7 +54,7 @@ def procesar_peticion(data):
 
 
 def iniciar_servidor():
-    host = "192.168.4.2"  # Dirección IP del servidor
+    host = "192.168.1.12"  # Dirección IP del servidor
     port = 8050  # Puerto del servidor
 
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)

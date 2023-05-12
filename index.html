@@ -157,7 +157,7 @@
         // Función para enviar el dato al servidor
         function enviarDato(valor) {
             var xhr = new XMLHttpRequest();
-            var url = "http://192.168.4.2:8050";
+            var url = "http:/192.168.1.12:8050";
             var params = "dato=" + valor;
 
             xhr.open("POST", url, true);
