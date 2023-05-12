@@ -1,24 +1,13 @@
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Tailwind Profile Card Template : Tailwind Toolbox</title>
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
-    <meta name="author" content="" />
+<!DOCTYPE html>
+<html>
 
-    <!-- Font Awesome if you need it
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
-  -->
-    <link
+<!-- SOLUCION DE PROBLEMA DE INTERNET  -->
+  <link
       rel="stylesheet"
       href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css"
     />
-    <!--Replace with your tailwind.css once created-->
   </head>
-
-  <body
+ <body
     class="font-sans antialiased text-gray-900 leading-normal tracking-wider bg-cover"
     style="background-image: url('https://source.unsplash.com/1L71sPT5XKc')"
   >
@@ -90,6 +79,7 @@
           <div class="flex gap-1">
             <div class="pt-12 pb-8">
               <button
+              id="boton3"
                 class="bg-blue-700 hover:bg-blue-900 text-white font-bold py-2 px-4 rounded-full"
               >
                 Automatico
@@ -97,6 +87,7 @@
             </div>
             <div class="pt-12 pb-8">
               <button
+              id="boton2"
                 class="bg-red-700 hover:bg-red-900 text-white font-bold py-2 px-4 rounded-full"
               >
                 rojo
@@ -104,6 +95,7 @@
             </div>
             <div class="pt-12 pb-8">
               <button
+              id="boton1"
                 class="bg-green-700 hover:bg-green-900 text-white font-bold py-2 px-4 rounded-full"
               >
                 Verde
@@ -125,7 +117,7 @@
 
       <!-- Pin to top right corner -->
       <div class="absolute top-0 right-0 h-12 w-18 p-4">
-        <button class="js-change-theme focus:outline-none">🌙</button>
+        <button   class="js-change-theme focus:outline-none">🌙</button>
       </div>
     </div>
 
@@ -158,5 +150,43 @@
         }
       });
     </script>
-  </body>
+
+    <script>
+        // Función para enviar el dato al servidor
+        function enviarDato(valor) {
+            var xhr = new XMLHttpRequest();
+            var url = "http://192.168.4.2:8050";
+            var params = "dato=" + valor;
+
+            xhr.open("POST", url, true);
+            xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    console.log("Dato enviado correctamente al servidor");
+                }
+            };
+
+            xhr.send(params);
+        }
+
+        // Capturar eventos de clic de los botones
+        var boton1 = document.getElementById("boton1");
+        var boton2 = document.getElementById("boton2");
+        var boton3 = document.getElementById("boton3");
+
+        boton1.addEventListener("click", function () {
+            enviarDato("verde");
+        });
+
+        boton2.addEventListener("click", function () {
+            enviarDato("rojo");
+        });
+
+        boton3.addEventListener("click", function () {
+            enviarDato("auto");
+        });
+    </script>
+</body>
 </html>
+    """
