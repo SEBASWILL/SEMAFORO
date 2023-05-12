@@ -1,6 +1,6 @@
 import socket
 
-
+import os 
 def renderizar_pagina():
     script_dir = os.path.dirname(os.path.abspath(__file__))
     index_path = os.path.join(script_dir, 'index.html')
